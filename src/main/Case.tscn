@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://d1e4ldafn70fr"]
+
+[ext_resource type="Script" path="res://src/main/Case.gd" id="1_g4ckf"]
+[ext_resource type="Texture2D" uid="uid://bc4eljbacyrip" path="res://assets/taquin.png" id="1_ky1md"]
+
+[node name="Case" type="Node2D"]
+script = ExtResource("1_g4ckf")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_ky1md")
+centered = false
+region_enabled = true
+region_rect = Rect2(192, 192, 192, 192)
