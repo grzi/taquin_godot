@@ -1,13 +1,29 @@
-[gd_scene load_steps=3 format=3 uid="uid://d1e4ldafn70fr"]
+[gd_scene load_steps=5 format=3 uid="uid://d1e4ldafn70fr"]
 
 [ext_resource type="Script" path="res://src/main/Case.gd" id="1_g4ckf"]
 [ext_resource type="Texture2D" uid="uid://bc4eljbacyrip" path="res://assets/taquin.png" id="1_ky1md"]
 
-[node name="Case" type="Node2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lukta"]
+size = Vector2(192, 192)
+
+[sub_resource type="GDScript" id="GDScript_v6nkj"]
+script/source = "extends CollisionShape2D
+
+
+"
+
+[node name="Case" type="Area2D"]
 script = ExtResource("1_g4ckf")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_ky1md")
 centered = false
 region_enabled = true
-region_rect = Rect2(192, 192, 192, 192)
+region_rect = Rect2(0, 0, 192, 192)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(96, 96)
+shape = SubResource("RectangleShape2D_lukta")
+script = SubResource("GDScript_v6nkj")
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]
